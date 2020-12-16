@@ -13,7 +13,7 @@ export class SearchComponent {
   obsfood: Observable<Object>;
   results: any;
 
-  constructor(public food: FoodfactsService) {
+  constructor(public api: FoodfactsService) {
 
   }
 
@@ -23,7 +23,7 @@ export class SearchComponent {
       return;
     }
     this.query = query.value;
-    this.obsfood = this.food.searchFood(this.query);
+    this.obsfood = this.api.searchFood(this.query);
     this.obsfood.subscribe((data) => { this.results = data; console.log(this.results) });
   }
 
